@@ -108,12 +108,16 @@ these commands::
 __ https://github.com/robotframework/robotframework/blob/master/INSTALL.rst
 __ https://github.com/robotframework/Selenium2Library/blob/master/INSTALL.rst
 
-The default browser is Firefox,and we should get the firefox webdriver:geckodriver
-Download from Github:
----https://github.com/mozilla/geckodriver
-Copy the geckodriver to the /usr/local/bin/ otherwise, need to set the PATH:
-export PATH=$PATH:/path/to/geckodriver
----https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver
+*  Note: 
+
+  The default browser is Firefox,and we should get the firefox webdriver: `geckodriver`__ 
+
+  Copy the geckodriver to the /usr/local/bin/ otherwise, need to set the `PATH`__ : 
+
+  export PATH=$PATH:/path/to/geckodriver 
+ 
+  __ https://github.com/mozilla/geckodriver 
+  __ https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver
 
 
 Starting demo application
