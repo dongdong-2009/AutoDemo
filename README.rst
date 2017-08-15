@@ -113,8 +113,8 @@ __ https://github.com/robotframework/Selenium2Library/blob/master/INSTALL.rst
   The default browser is Firefox,and we should get the firefox webdriver: `geckodriver`__ 
 
   Copy the geckodriver to the /usr/local/bin/ otherwise, need to set the `PATH`__ : 
-
   export PATH=$PATH:/path/to/geckodriver 
+  Otherwise,copy to the path C:\Python27\selenium\webdriver,and add this path in the system environment path while you use the windows system.
  
   __ https://github.com/mozilla/geckodriver/releases 
   __ https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver
