@@ -116,7 +116,7 @@ __ https://github.com/robotframework/Selenium2Library/blob/master/INSTALL.rst
 
   export PATH=$PATH:/path/to/geckodriver 
  
-  __ https://github.com/mozilla/geckodriver 
+  __ https://github.com/mozilla/geckodriver/releases 
   __ https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver
 
 
