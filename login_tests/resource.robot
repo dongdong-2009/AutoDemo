@@ -7,11 +7,11 @@ Documentation     A resource file with reusable keywords and variables.
 Library           Selenium2Library
 
 *** Variables ***
-${SERVER}         localhost:7272
-${BROWSER}        Firefox
+${SERVER}         127.0.0.1:7272
+${BROWSER}        ie
 ${DELAY}          0
 ${VALID USER}     demo
-${VALID PASSWORD}    mode
+${VALfID PASSWORD}    mode
 ${LOGIN URL}      http://${SERVER}/
 ${WELCOME URL}    http://${SERVER}/welcome.html
 ${ERROR URL}      http://${SERVER}/error.html
@@ -21,7 +21,7 @@ Open Browser To Login Page
     Open Browser    ${LOGIN URL}    ${BROWSER}
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
-    Login Page Should Be Open
+    #Login Page Should Be Open
 
 Login Page Should Be Open
     Title Should Be    Login Page
