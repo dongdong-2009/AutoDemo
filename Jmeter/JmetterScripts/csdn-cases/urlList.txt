@@ -1,0 +1,5 @@
+/book
+/article
+/article?tab=7hot
+/article?tab=follow
+/article?tab=mine
