@@ -1,0 +1,15 @@
+robotframework
+jason
+redis
+dbbot
+
+
+Appium-Python-Client
+pytest
+appium-adb
+appium-android-driver
+
+robotframework-selenium2library
+robotframework-pabot
+robotframework-sshlibrary
+appium-adb
