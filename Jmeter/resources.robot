@@ -11,7 +11,7 @@ Library          OperatingSystem
 
 *** Variables ***
 ${JMETER PATH}      /usr/local/share/jmeter/bin/jmeter.sh
-${RESULT PATH}      Jmetter-Scripts/result/jmeter.Log
+${RESULT PATH}      ../Jmetter-Scripts/result/jmeter.Log
 ${JMETER_HOME}      PATH
 
 *** Keywords ***
