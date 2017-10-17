@@ -6,11 +6,9 @@ dbbot
 
 Appium-Python-Client
 pytest
-appium-adb
-appium-android-driver
 
 robotframework-seleniumlibrary
 robotframework-selenium2library
 robotframework-pabot
 robotframework-sshlibrary
-appium-adb
+
