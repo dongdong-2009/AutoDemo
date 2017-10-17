@@ -7,11 +7,11 @@ Resource          resources.robot
 Default Tags      Jmeter
 
 *** Variables ***
-${scriptsFile}    C:/Users/Administrator/Documents/Jmetter-Scripts/csdn-cases/build-adv-web-test-csdn.jmx
-${resultsFile}    C:/Users/Administrator/Documents/Jmetter-Scripts/csdn-cases/csdn.jtl
+${scriptsFile}    Jmetter-Scripts/csdn-cases/build-adv-web-test-csdn.jmx
+${resultsFile}    Jmetter-Scripts/csdn-cases/csdn.jtl
 ${JmeterClient}    127.0.0.1
-${baiduScripts}    C:/Users/Administrator/Documents/Jmetter-Scripts/baidu1.jmx
-${baiduResults}    C:/Users/Administrator/Documents/Jmetter-Scripts/baidu1.jtl
+${baiduScripts}    Jmetter-Scripts/baidu1.jmx
+${baiduResults}    Jmetter-Scripts/baidu1.jtl
 
 *** Testcases ***
 

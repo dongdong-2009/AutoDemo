@@ -10,8 +10,8 @@ Library          Collections
 Library          OperatingSystem
 
 *** Variables ***
-${JMETER PATH}      C:/apache-jmeter-3.2/bin/jmeter.bat
-${RESULT PATH}      C:/Users/Administrator/Documents/Jmetter-Scripts/result/jmeter.Log
+${JMETER PATH}      /usr/local/share/jmeter/bin/jmeter.sh
+${RESULT PATH}      Jmetter-Scripts/result/jmeter.Log
 ${JMETER_HOME}      PATH
 
 *** Keywords ***
