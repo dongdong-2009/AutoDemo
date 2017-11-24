@@ -1,0 +1,32 @@
+=============
+框架资料
+=============
+
+-------------
+业务形态分类
+-------------
+
+用户中心
+=================
+
+* 用户中心可登录的前台 http://172.19.6.103/PC_FW1.0/index.html
+* 可登录后台（OA 系统可以创建用户） http://172.19.6.176:8280/bpmx/platform/console/main.ht
+  + 账号：admin/admin
+         *sessionid=3656bd924ef44ff99f3c47cbc949a921*
+
+* 测试数据库：Postgre
+    + IP:    10.0.0.97 端口： 5432
+    + 初始数据库： account_auth
+    + 账号：account_auth/123456
+
+* 用户 sessionid 查询方法::
+
+    #sessionId可以在这个库里面查到
+    SELECT * FROM
+    (SELECT a."name" AS 账号, a."user_name" AS 字号, a."email" AS 邮箱, a."mobile" AS 手机号码, a."address"AS 职位, a."sex" AS 性别, a."user_id" AS 工号, b."enterprise_code" AS 企业编码, b."session_id" AS SESSIONID ,b."last_update_time" AS 更新时间,
+    RANK() OVER(PARTITION BY a."user_id", b."enterprise_code" ORDER BY b."last_update_time" DESC) AS row
+    FROM "usr" a
+    LEFT JOIN "auth_session" b
+    ON b."user_id" = a."user_id"
+    where a."email" in ('yanbai@suneee.com','liufang@suneee.com','zhaowen@suneee.com','chuyang@suneee.com','leili@suneee.com','zegang@suneee.com','fengyi@suneee.com','haoxuan@suneee.com')) AS abc
+    WHERE abc.row=1

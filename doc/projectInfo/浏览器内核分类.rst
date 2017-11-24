@@ -1,0 +1,112 @@
+============================
+浏览器内核分类
+============================
+
+浏览器最重要或者说核心的部分是"Rendering Engine"，可大概译为"渲染引擎"，不过我们一般习惯将之称为"浏览器内核"。
+负责对网页语法的解释(如标准通用标记语言下的一个应用HTML、JavaScript)并渲染(显示)网页。
+所以，通常所谓的浏览器内核也就是浏览器所采用的渲染引擎，渲染引擎决定了浏览器如何显示网页的内容以及页面的格式信息。
+不同的浏览器内核对网页编写语法的解释也有不同，因此同一网页在不同的内核的浏览器里的渲染(显示)效果也可能不同，
+这也是网页编写者需要在不同内核的浏览器中测试网页显示效果的原因。
+
+--------------------------
+内核分类
+--------------------------
+
+
+Trident
+==========================
+
+IE浏览器使用的内核,该内核程序在1997年的IE4中首次被采用，是微软在Mosaic代码的基础之上修改而来的，并沿用到目前的IE8。
+Trident实际上是一款开放的内核，其接口内核设计的相当成熟，因此才有许多采用IE内核而非IE的浏览器涌现（如 Maxthon、The World 、TT、GreenBrowser、AvantBrowser等）。
+此外，为了方便也有很多人直接简称其为IE内核（当然也不排除有部分人是因为不知道内核名称而只好如此说）。
+
+由于IE本身的“垄断性”（虽然名义上IE并非垄断，但实际上，特别是从Windows 95年代一直到XP初期，就市场占有率来说IE的确借助Windows的东风处于“垄断”的地位）而使得Trident内核的长期一家独大，
+微软很长时间都并没有更新Trident内核，这导致了两个后果——一是Trident内核曾经几乎与W3C标准脱节（2005年），
+二是Trident内核的大量 Bug等安全性问题没有得到及时解决，然后加上一些致力于开源的开发者和一些学者们公开自己认为IE浏览器不安全的观点
+，也有很多用户转向了其他浏览器，Firefox和Opera就是这个时候兴起的。非Trident内核浏览器的市场占有率大幅提高也致使许多网页开发人员开始注意网页标准和非IE浏览器的浏览效果问题。
+
+Gecko
+========================
+
+Netscape6开始采用的内核，后来的Mozilla FireFox也采用了该内核，Gecko的特点是代码完全公开，因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。因为这是个开源内核，因此受到许多人的青睐，Gecko内核的浏览器也很多，这也是Geckos内核虽然年轻但市场占有率能够迅速提高的重要原因。
+
+事实上，Gecko引擎的由来跟IE不无关系，前面说过IE没有使用W3C的标准，这导致了微软内部一些开发人员的不满；他们与当时已经停止更新了的 Netscape的一些员工一起创办了Mozilla，以当时的Mosaic内核为基础重新编写内核，于是开发出了Geckos。不过事实上，Gecko 内核的浏览器仍然还是Firefox用户最多，所以有时也会被称为Firefox内核。此外Gecko也是一个跨平台内核，可以在Windows、 BSD、Linux和Mac OS X中使用。
+
+Presto
+========================
+
+目前Opera采用的内核，该内核在2003年的Opera7中首次被使用，该款引擎的特点就是渲染速度的优化达到了极致，也是目前公认网页浏览速度最快的浏览器内核，然而代价是牺牲了网页的兼容性。
+
+实际上这是一个动态内核，与前面几个内核的最大的区别就在脚本处理上，Presto有着天生的优势，页面的全部或者部分都能够在回应脚本事件时等情况下被重新解析。此外该内核在执行Javascrīpt的时候有着最快的速度，根据在同等条件下的测试，Presto内核执行同等Javascrīpt所需的时间仅有Trident和Gecko内核的约1/3（Trident内核最慢，不过两者相差没有多大）。那次测试的时候因为Apple机的硬件条件和普通PC机不同所以没有测试WebCore内核。只可惜Presto是商业引擎，使用Presto的除开Opera以外，只剩下NDSBrowser、Wii Internet Channle、Nokia 770网络浏览器等，这很大程度上限制了Presto的发展。
+
+Webkit
+========================
+
+苹果公司自己的内核，也是苹果的Safari浏览器使用的内核。 Webkit引擎包含WebCore排版引擎及JavaScriptCore解析引擎，均是从KDE的KHTML及KJS引擎衍生而来，它们都是自由软件，在GPL条约下授权，同时支持BSD系统的开发。所以Webkit也是自由软件，同时开放源代码。在安全方面不受IE、Firefox的制约，所以Safari浏览器在国内还是很安全的。
+
+限于Mac OS X的使用不广泛和Safari浏览器曾经只是Mac OS X的专属浏览器，这个内核本身应该说市场范围并不大；但似乎根据最新的浏览器调查表明，该浏览器的市场甚至已经超过了Opera的Presto了——当然这一方面得益于苹果转到x86架构之后的人气暴涨，另外也是因为Safari 3终于推出了Windows版的缘故吧。Mac下还有OmniWeb、Shiira等人气很高的浏览器。
+
+google的chrome也使用webkit作为内核。
+
+WebKit 内核在手机上的应用也十分广泛，例如 Google 的手机 Gphone、 Apple 的 iPhone, Nokia’s Series 60 browser 等所使用的 Browser 内核引擎，都是基于 WebKit。
+
+WebCore
+========================
+
+WebCore是苹果公司开发的排版引擎，它是在另外一个排版引擎“KHTML”的基础上而来的。苹果电脑于2002年采纳了KHTML，作为开发Safari浏览器之用，并发布所修改的最新及过去版本源代码。后来发表了开放源代码的WebCore及WebKit引擎，它们均是KHTML的衍生产品。使用WebCore的主要有Safari，此外还有OmniWeb、Shiira、Swift等。Safari现支持Windows，但效果不如iOS上的。
+
+KHTML
+========================
+
+KHTML，是HTML网页排版引擎之一，由KDE所开发。
+KDE系统自KDE2版起，在档案及网页浏览器使用了KHTML引擎。该引擎以C++编程语言所写，并以LGPL授权，支援大多数网页浏览标准。由于微软的Internet Explorer的占有率相当高，不少以FrontPage制作的网页均包含只有IE才能读取的非标准语法，为了使KHTML引擎可呈现的网页达到最多，部分IE专属的语法也一并支援。
+KHTML拥有速度快捷的优点，但对错误语法的容忍度则比Mozilla产品所使用的Gecko引擎小。
+苹果电脑于2002年采纳了KHTML，作为开发Safari浏览器之用，并发布所修改的最新及过去版本源代码。后来发表了开放源代码的WebCore及WebKit引擎，它们均是KHTML的衍生产品，在开发网站列出引擎改变内容，并会传回至KDE计划。由于两个衍生产品各走不同路线，使两者源代码偏离，在与KDE交换更新会出现困难。其中一个原因，是苹果在对外公开源代码之前，以一年时间编修他们的KHTML。另外，苹果传送更新至KDE计划的方式，多是一口气把大量改动一起传送，KDE在整理资料也出现一定的困难，及后苹果表示会以CVS格式来传送。再者，苹果所作出的改动包括Mac OS X系统独有的事物，如Objective-C、KWQ等，在Linux及KHTML是没有的。但KDE方面仍透过这些改动，为KHTML加入新功能及加快其排版速度。
+
+Chromium
+========================
+
+是一个由Google主导开发的网页浏览器。以BSD许可证等多重自由版权发行并开放源代码。Chromium的开发可能早自2006年即开始，设计思想基于简单、高速、稳定、安全等理念，在架构上使用了Apple发展出来的WebKit排版引擎、Safari的部份源代码与Firefox的成果，并采用Google独家开发出的V8引擎以提升解译JavaScript的效率，而且设计了"沙盒"、"黑名单"、"无痕浏览"等功能来实现稳定与安全的网页浏览环境。Chromium是Google为发展自家的浏览器Google Chrome(以下简称Chrome)而开启的计划，所以Chromium相当于Chrome的工程版或称实验版(尽管Chrome自身也有β版阶段)，新功能会率先在Chromium上实现，待验证后才会应用在Chrome上，故Chrome的功能会相对落后但较稳定。Chromium的更新速度很快,每隔数小时即有新的开发版本发布，而且可以免安装，下载zip封装版后解压缩即可使用(Windows下也有安装版)。Chrome虽然理论上也可以免安装，但Google仅提供安装版。
+Chromium和Chrome所使用的webkit内核是目前公认的最快的网页浏览方式。
+
+
+-----------------------
+JavaScript引擎
+-----------------------
+JavaScript引擎就是用来执行JS代码的。譬如说，一个算圆周率的网页，排版引擎把页面的框架给显示出来了，但最终的结果需要用到 Javascript 来计算，所以Javascript引擎的快慢也是对整个网页的速度有着很大影响，特别是目前越来越多类似 WebQQ、Gmail 等大量应用了复杂的 Javascript 运算的网站，不同的引擎最终的速度差异会相当大。
+
+  1. Chakra  查克拉，IE9启用的新的JavaScript引擎。
+  2. SpiderMonkey / TraceMonkey / JaegerMonkey
+     SpiderMonkey应用在Mozilla Firefox 1.0-3.0，TraceMonkey应用在Mozilla Firefox 3.5-3.6版本，JaegerMonkey应用在Mozilla Firefox 4.0及后续的版本。
+  3. V8  应用于Chrome.傲游3。
+  4. Nitro  应用于Safari 4及后续的版本。
+  5. Linear A/Linear B/Futhark/Carakan
+     Linear A应用于Opera 4.0-6.1版本，Linear B应用于Opera 7.0～9.2版本，Futhark应用于Opera 9.5-10.2版本，Carakan应用于Opera 10.5及后续的版本。
+  6. KJS  KHTML对应的JavaScript引擎。
+
+
+-----------------------
+多核浏览器
+-----------------------
+使用这个链接可以 检查浏览器版本_ , 查看到当前常用的双核浏览器。
+
+.. 检查浏览器版本: https://liulanmi.com/labs/core.html
+
+IETab
+=======================
+
+这是一款浏览器扩展，并非内核。在没有第三方编译版本的时候，IETab一直是 Mozilla Firefox、Chrome等非Trident内核的浏览器的安装量最大的扩展之一，方便用户在不开启IE的情况下调用Trident内核访问一些兼容性比较差的网站。
+
+Trident/Gecko双核浏览器
+=============================
+
+虽然IETab能实现部分需求，但是深度订制的毕竟还是不一样，所以Trident/Gecko双核浏览器就诞生了，Sleipnir、Avant 12（Orca）是这类里面比较常见的。
+Avant 12因为有Orca的前期积累，所以轻车熟路，后面还打算加入Chromium，变成三核浏览器，但是偏偏现在Mozilla Firefox和Chrome都在疯狂刷版本号，肯定有一部分精力要花在跟进版本上。
+
+Trident/WebKit双核浏览器
+==============================
+现在国内最主流的“双核”浏览器基本都是这个架构，360极速浏览器、世界之窗浏览器极速版、傲游3搜狗浏览器3、QQ浏览器、枫树浏览器、快快浏览器、百度浏览器、阿云浏览器（后期版本）、太阳花浏览器，其中最奇葩的是傲游3。其它双核浏览器都是基于Chromium的，而傲游是基于WebKit的，但是偏偏又用的是V8引擎。
+
+Trident/Gecko/WebKit三核浏览器
+============================================
+目前能见的应该就是日本的Lunascape，Avant增加了WebKit内核之后也会归类到这里。说实话，Lunascape真的很难用，真的很奇葩。各个内核相对独立，外壳本身不够强化，稳定性不高，所以还不如用回单核浏览器。

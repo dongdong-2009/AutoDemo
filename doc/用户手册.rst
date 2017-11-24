@@ -1,0 +1,201 @@
+===================================
+xtcAuto 用户手册
+===================================
+
+自动化测试工程的主要配置，使用方法。
+
+----------------
+命名规范
+----------------
+主要采用帕斯卡命名法/骆驼命名法 和 下划线命名法;
+tag 标记前置，扩展描述后置。例如::
+
+  脚本 1_Login_Chrome.robot，其中'1_'为tid tag，'Chrome'为扩展描述。
+
+工程文件和文件夹命名
+=======================
+
+基本规则
+----------------
+
+1. 工程 名为单个词，可以是缩写
+2. 文件夹 或 包 名为小写的特征单词，如果单个词不能充分描述可以使用下划线连接多个单词
+3. 代码文件 名为 首字母大写和连写的字符串，亦或首字母大写使用下划线连接的字符串，最后考虑惯用名称
+4. 测试功能集/脚本集 名为首字母大写，及连写的字符串
+5. 脚本文件 名为首字母大写 使用下划线连接的字符串
+6. 文件夹，文件名称采用域内相对唯一的规则
+7. 不允许使用'.','-'，‘@’，‘ ’(空格)，等特殊字符命名
+8. 不建议使用中文命名文件，文件夹
+9. 不允许使用没有具体含义的 'abc','123','1111','00000','aaaa' 等字符串命名
+10. 不推荐过度简写的，或过长的字符串命名
+
+原则是清晰易懂，使用主流的命名范式，避免一些随意的、难理解的、不规则的字符串出现。
+
+Tid (脚本Tag) 标记
+----------------
+
+  统一使用 tid 标记脚本和脚本集，避免使用 min,std,smork,system 引起不必要混乱，不可维护
+  如需 Min，Std,Full,Smork 测试集需求，可以定制测试计划实现,如 testplan/zysc_Min_plan.conf,
+  testplan/OA_Std_plan.conf,testplan/xyzx_Full_plan.conf
+
+  1. 顶层测试集名前加'1_','2_','3_', ....'99_' ...', 如 1_Performance
+  2. 其他层级测试集名前追加 '1_1_','1_2_','1_3_1_' ..., 如 4_2_Submit_BanGong_Form
+  3. 每次一层级的脚本名加前缀 '0_','1_','2_','3_' ..., 如 2_Submit_KaoQing_Form.robot
+  4. 在同一个测试集（文件夹）中，必须保持唯一
+  5. 在 robot 格式脚本中使用 Force Tags 配置 tid
+  6. 对于某一个测试用例（脚本）能够通过 tid(tag) 唯一指定，如 'tid-1-2-1-3'
+  7. 对于某一个测试集（功能模块）能够通过 tid(tag) 唯一指定，同上,如： 'tid-1-2-1'
+
+
+命名示例::
+
+   测试工程命名:
+   .\
+    |- 工程命名：xtcAuto
+    |-- 文件夹：doc
+    |-- 文件夹：output
+    |-- 文件夹：resources
+    |-- 代码库名：libs
+    |     \-代码包名：common
+    |     \-代码包名：jenkins_builder
+    |          \-代码文件名：Start_Nmon_On_Centos.py
+    |          \-代码文件名：MysqlClient.py
+    |          \-代码文件名：FTPClient.py
+    |-- 测试集文件夹：testsuites
+    |     \-测试集：1_Deployment
+    |     \-测试集：2_Performance
+    |     \-测试集：3_XiangPu
+    |     \-测试集：4_ZiYuanShangCheng
+    |         \-测试子集：4_1_User_Login
+    |             \-测试脚本：1_Login_Chrome.robot
+    |             \-测试脚本：2_Login_Firefox.py
+    |             \-测试脚本：3_Login_IE.py
+    |         \-测试子集：4_2_Submit_BanGong_Form
+    |             \-测试脚本：1_Submit_ChuChai_Form.robot
+    |             \-测试脚本：2_Submit_KaoQing_Form.robot
+    |
+
+
+配置文件规范
+===================
+
+resources/services.conf 配置示例::
+
+  [ZiYuanShangCheng]        #服务名称
+    ServicesPlantform =       #前台URL
+    ServicePort =             #前台访问端口
+    ServicesName =            #前台用户名称
+    ServicesPassword =        #前台用户密码
+    ManagerPlantform =        #后台URL
+    ManagerPort =             #后台访问端口
+    ManagerName =             #后台用户名称
+    ManagerPassword =         #后台用户密码
+
+
+
+resources/devices.conf 配置示例::
+
+  [ZiYuanShangCheng_ApplicationServer]        #服务器名称
+    Host =                    #服务器IP地址或域名
+    Username =                #服务器用户名称
+    Password =                #服务器登陆密码
+    host-key =                #服务器登陆密钥
+    Service =                 #承载服务名称,测试脚本将先读取services.conf,然后根据ServiceName 选择devices
+
+
+测试计划文件配置
+-------------------------
+
+测试计划文件 testplan/tempplan.conf 配置示例::
+
+  [default]                    #在 default 块(section)中配置测试计划通用参数选项(option)，基本信息选项
+    name =                     #指定测试计划名称，如：zysc_BanGong
+    doc = ""                     #指定需要的文本
+    metadata = ""                #指定可传入的变量
+    services = ""                #服务名称
+    host = ""                  #服务器主机（可保持默认），会自动从devices.conf 读取
+    pre_version=version1       #前版本，或预处理版本
+    cur_previous=version2      #测试版本，或发布版本
+    include= ""                  #包含的测试脚本集，通过统一格式的tag 指定,可使用'OR' + 通配符 指定多个
+    exclude= ""                  #不包含的测试集，
+    suite= ""                    #指定具体的一个测试集
+    test= ""                     #指定具体的一个测试用例（脚本）
+
+  [00_BanGong_Init]            #可以指定一些测试计划需要的初始化脚本，类似 测试计划的SetUP
+    include=
+    exclude=
+    suite=
+    test=
+
+  [01_BanGong_KaoQing]         #通过前缀00，01，02 指定测试集执行的先后顺序，不能重复
+    include=
+    exclude=
+    suite=
+    test=
+
+  [02_BanGong_CaiWu]            #指定一个测试集，每个测试集可生成一个独立的测试报告
+    include=
+    exclude=
+    suite=
+    test=
+
+  [02_BanGong_ChuChai]           #指定一个测试集，每个测试集可生成一个独立的测试报告
+    include=
+    exclude=
+    suite=
+    test=
+
+  [99_BanGong_Over]              #可以指定一些测试计划结束后，回复环境的一些脚本，类似 测试计划的TearDown
+    include=
+    exclude=
+    suite=
+    test=
+
+
+.py 脚本编码规范
+=================================
+   遵循 PEP-8_ 规范;
+
+   * 本地编码要求：
+
+     1. 变量名 小写单词 加 下划线；或首字母大写单词连写（帕斯卡命名法）
+     2. 常量名 全大写，必要时可以使用下划线
+     3. 函数名 小写单词 加 下划线
+     4. 类名 小写单词 或首字母大写单词连写（帕斯卡命名法）
+     5. 对脚本总体使用 doc 块说明注释
+     6. 函数注释，必要时紧跟函数名后使用标准的 doc 块注释
+     7. 不推荐 行注释，或行内注释
+     8. 缩写命名 首先参考惯例，其次依据表意，优先选择小写字母
+     9. 注释内的变量推荐 JSON 格式
+     10. 注释优先采用 doctest
+
+  .. PEP-8: https://www.python.org/dev/peps/pep-0008/
+
+
+
+.robot 脚本编码规范
+================================
+    优先遵循 Python 编码规范
+
+    * 本地编码要求：
+
+      1. 关键字 使用首字母大写 加 下划线
+      2. 常量 使用全大写单词
+      3. 变量 优先考虑 小写单词，其次考虑 小写单词 加 下划线
+      4. 全局变量 使用首字母大写单词连写
+
+
+
+
+.html 脚本编码规范
+=================================
+    遵循 W3C_ 规范
+
+    待更新
+
+    .. W3C: http://www.w3school.com.cn/tags/tag_html.asp
+
+
+.java 编码规范
+=================================
+    待更新
