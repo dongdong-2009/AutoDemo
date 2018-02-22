@@ -1,0 +1,35 @@
+演示系统说明
+===========================================================
+
+
+移动硬盘系统使用说明
+-----------------------------------------------------------
+
+在 Acer_Common/tools/ 目录下备份了 VirtualBox 安装包
+
+1. Arch
+
+   登录账户: arch/arch
+
+   * Docker
+
+     + jenkins(banrieen/123456) 192.168.56.202:8082
+     docker run --name SEJenkins -d -p 8082:8080 -p 50000:50000 -v /usr/local/share/jenkins:/var/jenkins_home jenkins
+
+2. Debian-Jesse
+
+   登录账户: pi/raspberry
+
+
+3. Ubuntu
+
+   登录账户: pi/13760112192
+
+
+4. VirtualRouter
+
+   openwrt （CLI 无登录密码 ，Web admin/admin)
+
+5. Windows 10
+
+   登录账户： 13760112192
