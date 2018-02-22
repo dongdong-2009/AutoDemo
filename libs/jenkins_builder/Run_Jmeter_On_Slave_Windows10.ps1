@@ -20,15 +20,15 @@ if(-not (10 -eq [System.Environment]::OSVersion.Version.Major))
     }
 
 #执行Jmeter 脚本将log放在TempReport\下，html报告放在TempReport\HtmlReport
-If (-not ((Test-path $outPutDir\TempReport\*.jtl) -or (Test-path $outPutDir\TempReport\JmeterReport\* )))
+If (-not ((Test-path $outPutDir\TempReport\*.jtl) -or (Test-path $outPutDir\TempReport\JmeterReport\* ) -or (Test-path $outPutDir\TempReport\NmonReport\* )))
     {
-    cmd /c C:\ApacheJmeter\bin\jmeter.bat -n -t $caseDir\$testcases.jmx -l $outPutDir\TempReport\$testcases.jtl  -e -o $outPutDir\TempReport\JmeterReport
+    cmd /c jmeter.bat -n -t $caseDir\$testcases.jmx -l $outPutDir\TempReport\$testcases.jtl  -e -o $outPutDir\TempReport\JmeterReport
     }
 Else 
     {Remove-Item  $outPutDir\TempReport\*.jtl -recurse
      Remove-Item  $outPutDir\TempReport\NmonReport\*.nmon -recurse
      Remove-Item  $outPutDir\TempReport\JmeterReport\* -recurse
-     cmd /c C:\ApacheJmeter\bin\jmeter.bat -n -t $caseDir\$testcases.jmx -l $outPutDir\TempReport\$testcases.jtl  -e -o $outPutDir\TempReport\JmeterReport
+     cmd /c jmeter.bat -n -t $caseDir\$testcases.jmx -l $outPutDir\TempReport\$testcases.jtl  -e -o $outPutDir\TempReport\JmeterReport
      }
 
 #确认Jmeter 执行完毕

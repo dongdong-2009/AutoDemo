@@ -1,4 +1,12 @@
 ﻿<#
+#I new a wifi hostpot on windows system environment via powershell.
+#============================================================================
+#While config the ICS(internet connection share),I use the *Mike F Robbins* scripts [MrToolkit](http://mikefrobbins.com/2017/10/19/configure-internet-connection-sharing-with-powershell/)
+#As take the virtual interface name with variables when start the hostednetwork,so it is more Convenience。
+#
+#The script only need ssid name and password as variable;besides network adapter interface name or status will be auto probed.
+#*Note：*  Do not execute the script via mouse “RIGHT-ClICK”，it may cause exceptions.
+
 # 在系统本地设置 wifi 热点,自动监测本地物理网络的连接状态，设置网络共享。
 # 执行时需要输入要设置的SSID名称，密码；当然也要确认好电脑的无线网卡支持设置热点。
 # 设置完成后，就可以在手机上搜索连接SSID，无线网络的物理特性依赖于电脑无线网卡的特性。

@@ -1,20 +1,23 @@
-=============
-框架资料
-=============
-
 -------------
-业务形态分类
+框架资料
 -------------
 
 用户中心
 =================
 
+* 威宁生产环境 xp.wn.sunmath.cn/index.html
+
+* 威宁测试环境 http://172.19.6.103/weining0.5/index.html
+
 * 用户中心可登录的前台 http://172.19.6.103/PC_FW1.0/index.html
+
 * 可登录后台（OA 系统可以创建用户） http://172.19.6.176:8280/bpmx/platform/console/main.ht
+
   + 账号：admin/admin
          *sessionid=3656bd924ef44ff99f3c47cbc949a921*
 
 * 测试数据库：Postgre
+
     + IP:    10.0.0.97 端口： 5432
     + 初始数据库： account_auth
     + 账号：account_auth/123456
@@ -30,3 +33,21 @@
     ON b."user_id" = a."user_id"
     where a."email" in ('yanbai@suneee.com','liufang@suneee.com','zhaowen@suneee.com','chuyang@suneee.com','leili@suneee.com','zegang@suneee.com','fengyi@suneee.com','haoxuan@suneee.com')) AS abc
     WHERE abc.row=1
+
+    #提取每个账号的第一个sessionId
+    select abc.name ,abc.session_id from (
+    SELECT usr.name,auth_session.session_id,RANK() OVER(PARTITION BY usr.user_id order by auth_session.session_id) AS row
+    FROM usr,auth_session WHERE usr.user_id = auth_session.user_id AND usr.name like 'testing%') as abc
+    where abc.row = 1
+
+
+* 用户角色权限设置
+
+    测试环境象翌公共服务平台：
+    http://172.19.6.103:81
+    weining            123456
+    platform_admin     123456
+
+* 南宁客户测试环境：
+
+  威宁基线三链测试DbT52	WeiNgingJXSLDbT52	10.1.40.52	10.0.0.151:15222	CentOS 7 x86_64	4	8	600	root	VxN-6S87cZrer)K=8~5%	ssh 10.1.40.52 15222

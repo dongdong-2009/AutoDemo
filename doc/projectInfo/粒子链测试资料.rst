@@ -1,85 +1,25 @@
-=============
+-------------
 粒子链资料
-=============
-
--------------
-官网
 -------------
 
-象翌官网
 ================
-
-+ PC：http://test.xiangyi.weilian.cn/
-+ 手机：http://test.xiangyi.weilian.cn:9902/src/index.html?type=7
-+ CMS：http://172.16.40.16:84/#/login
-
-CMS 象翌微链内容管理系统
-============================
-
-+ 生产环境：http://172.16.40.16:84/#/login
-  CMS：账号admin   密码：123456
-  申请账号：qinxing/Bianhy
-+ 测试环境：172.19.7.134
-
-
-一带一路
-================
-
-+ 测试环境：172.19.7.115
-+ 团队介绍：cms.pactera.com
-+ 后台：http://test.scn.weilian.cn/
-+ 账号：njxsadmin1   密码：123456
-
-  **生产环境**
-  + PC端：http://web.suneee.weilian.cn/
-  + 手机端：http://web.suneee.weilian.cn/mobile/index.html
-  + CMS：http://172.19.7.134/#/login
-
-  **旧生产环境**
-  + PC端：http://greensr.suneee.com/
-  + 手机端：无
-  + CMS地址：http://cms.greensr.suneee.com:83/
-
-
-绿色丝路
-================
-
-+ 生产环境：greensr.suneee.com
-
-
-
-翌能官网
-================
-
-+ PC：http://www.yinengwl.com/
-+ 手机：http://www.yinengwl.com/mobile/src/index.html?type=7
-+ CMS：http://10.0.0.152:16668/#/login
-
-
-威宁官网
-================
-
-+ PC：http://test.gfw.weilian.cn/
-+ 手机：无
-+ CMS：http://172.16.43.4:82/#/login
-
-
--------------
 学习中心
--------------
+================
 
 + 前台：http://172.19.6.176:8080/learningCenter/page/train/list.html?type=1
 +  后台：http://172.19.6.176:8080/xiangpu/
 +  账号：admin/admin123
++ 威宁正式环境的链接
+    http://learn.wn.sunmath.cn/learn
+    http://learn.wn.sunmath.cn/learnweb/
+    http://learn.wn.sunmath.cn/learnmobile/
++ 威宁 测试环境 http://test.learn.suneee.weilian.cn/learnweb/
+    后台 http://test.learn.suneee.weilian.cn/learn/
+                admin/admin123
 
--------------
-商城
--------------
-
-宁家鲜生
 ================
-
-+ http://shiyanjun.cn/archives/325.html  Dubbo 架构
+商城
+================
 
 资源商城
 ================
@@ -89,5 +29,6 @@ CMS 象翌微链内容管理系统
 + 后台测试地址：http://test.scn.weilian.cn/
   - 帐号：seadmin/123456
 + 测试后台 http://system-rest-enterprise.mall.xt.weilian.cn
-  - 账号：zyscroot/zysctest01/zysctest02/zysctest03 密码 123456
+  - 账号：setest01/setest02/setest03 密码 123456
 + 前端测试地址：http://mall.xt.weilian.cn/mobile/#/main/home?sessionId=c64e81e93c044466af14e53f6a8df5e5
+   aaq5,  aaq6,  aaq7,  aaq8, 密码都是123456

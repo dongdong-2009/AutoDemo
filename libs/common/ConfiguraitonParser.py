@@ -1,50 +1,81 @@
 #!/usr/bin/python
 #-*- coding:UTF-8 -*-
 
-"""
-   Use configparser to auto modify the config_xx.ini [Config] session arguments:product,pre_version,cur_previous
-   [Config]
-    product=dev1,aut2
-    pre_version=123
-    cur_previous=456
-    include=
-    exclude=
-    suite=
-    test=
-    
-   At first ,the variable of the testsuites will be set at the tester.py or other settings file;
-   Be sure,the configuration path or testsuites is relative path,keep it unique alive in the system. 
-   This is a example module,For example:
-   >>> ConfigSetup().configer(conf_path="D:\\autotest\\autotest2.0\\run\settings",\
-                               conf_list=["config_std_system.ini","config_tmp.ini"],\
-                               conf_idlelist=["config_std_system.ini",],\
-                               fw_version="456",\
-                               fw_previous="1231",\
-                               dut_list={'dut':['dev1'],'aut':['aut1']})
-   config_tmp.ini reset configuration ok.
-   
-   Created on 2017年11月22日
-
-   @author: outse
-"""
+#===============================================================================
+# """
+#    Use configparser to read or modify the xxx.conf：
+#    [Config]
+#     product=dev1,aut2
+#     pre_version=123
+#     cur_previous=456
+#     include=
+#     exclude=
+#     suite=
+#     test=
+#     
+#    At first ,the variable of the testsuites will be set at the tester.py or other settings file;
+#    Be sure,the configuration path or testsuites is relative path,keep it unique alive in the system. 
+#    This is a example module,For example:
+#    >>> ConfigSetup().configer(conf_path="C:\2_EclipseWorkspace\xtcAuto\resources",\
+#                                conf_list=["ZYSC_Plan.conf",],\
+#                                conf_idlelist=["config_std_system.ini",],\
+#                                fw_version="version1",\
+#                                fw_previous="version2",\
+#                                dut_list={'dut':['dev1'],'aut':['aut1']})
+#    config_tmp.ini reset configuration ok.
+#    
+#    Created on 2017年11月22日
+# 
+#    @author: outse
+#      
+# """
+#===============================================================================
 
 
 import configparser
 import os
 import re
+from _overlapped import NULL
 
 class ConfigSetup:
     def __init__(self):
         pass
     
-    def get_sections(self,confPath):
-        confSecs = configparser.Safeconfigparser()
-        
+    def read_conf(self,confPath):
+        if not os.path.isfile(confPath):
+            return None
+        conf = configparser.ConfigParser()
         try:
-            confSecs.read(confPath)
+            conf.read(confPath)
         except IOError as er:
             raise "There is no configuration file ! %s \n" % (er)
-        return confSecs
+        
+        for cf in conf.sections():
+            print(cf) 
+        return conf
+    
+    def select_section(self,conf,tag):
+        if not conf:
+            return None
+        for sec in  conf.sections():
+            if re.match(tag , sec):
+                print(sec)
+                return sec
+        return None
+    
+    def select_option(self,conf,sec,tag):
+        if not sec:
+            return None
+        for opn in  conf.options():
+            if re.match(tag , opn):
+                print(opn)
+                return opn
+        return None
+    
+    def get_option_value(self,conf,sec,opn):
+        if opn:
+            return conf.get(sec,opn)
+        return None
     
     def save_sections(self,sections,confPath):
         try:
@@ -110,6 +141,12 @@ class ConfigSetup:
             print("Edit %s with test arguments ok." % (os.path.basename(confs))) 
        
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod() 
-    ConfigSetup()
+    #===========================================================================
+    # import doctest
+    # doctest.testmod() 
+    # ConfigSetup()
+    #===========================================================================
+    
+    confPath = r"C:\2_EclipseWorkspace\xtcAuto\testplan\ZYSC_Plan.conf"
+    cs = ConfigSetup()
+    print(cs.get_sections(confPath))

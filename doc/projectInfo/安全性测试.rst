@@ -1,0 +1,54 @@
+-----------------------------------------------
+安全性测试
+-----------------------------------------------
+
+
+测试环境
+===============================================
+
+*实例测试环境*
+
+测试入口：http://172.19.6.103/weining0.5/index.html
+
+普通用户：WeiNing0/123456
+管理员：xtcAuto00/123456
+
+
+常用策略名字解释：
+===============================================
+
+* Default 默认策略
+* Complete 全部
+* Invasive 侵入式
+* Application Only 仅应用程序
+* Infrastructure Only 仅基础结构
+* Third Party-only 仅第三方
+* Web Services
+* The vital Few  关键少数
+* Developer essentials 开发者精要
+* Production Site 生产站点
+
+Jenkins AppScanplugin 配置
+===============================================
+
+安装辅助插件：
+AppScan配置和执行插件：IBM Security AppScan Standard Scanner Plugin
+在指定节点执行AppScan的插件：Node and Label Parameter Plugin
+Html report生成插件：HTML Publisher Plugin
+
+另外如果在脚本中或配置指定的本地环境，没有指定远程目录；那么AppScan 将在关联的节点node 环境下执行；
+也就是node 必须有脚本执行环境，而不是在node 下使用远程环境执行。Node and Label Parameter Plugin 在一般情况下
+并不需要，随有些类似想法，可能会受到多种因素如工具的支持，网路的支持等影响。
+
+使用 执行AppScan 自动探测的方法，请参照 IBM Security AppScan Standard Scanner Plugin `wiki <https://wiki.jenkins.io/display/JENKINS/IBM+Security+AppScan+Standard+Scanner+Plugin>`_
+
+  1. 在jenkins的插件管理中安装AppScan Standard Scanner Plugin，HTML Publisher Plugin；
+  2. 在 Jenkins 系统管理-Global Tool Configuration 中找到 AppScan Standard配置项
+  3. 点击 “	AppScan Standard 安装” 填入该节点下AppScan 的安装目录
+  4. 新建job 或打开已有的job 修改，在“构建环境”中选择“Run AppScan Standard”
+  5. 配置要测试的 网站的URL，认证的账号，或录制的认证脚本
+  6. 设置report title，选择report 文档类型为HTML 或 pdf，jenkins 集成了HTML的在线展示
+  7. 指定 测试策略“.policy” 文件的路径，一般指自定义策略的路径，非自定义路径可直接使用安装目录 “C:\Program Files (x86)\IBM\AppScan Standard\Policies”
+  8. 如果选择生成HTML report，在“构建后的操作中” 添加 HTML directory to archive 的路径，报告title和首页title
+  9. 注意在填写Index page[s] 时候，需要和构建中设置的title 保持相同，否则在线报告链接会为空。
+  10.需要注意的是在常规配置中的“使用自定义的工作空间”可以指定相对路径： output\TempReport\SecurityReport 规避路径不相符的问题。
