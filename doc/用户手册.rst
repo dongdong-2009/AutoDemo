@@ -271,5 +271,9 @@ report.html is a default file that rebot parsed for report format staticed with 
 敏捷 CI
 --------------------------------------------------------
 
-jenkins 访问地址：http://192..168.56.202:8082
-        登录账户： banrieen/123456
+jenkins 访问地址：http://172.19.7.110:8082
+        登录账户： qinxing/123456
+
+jenkins 备份：需要备份 jenkins_home/jobs, jenkins_home/plugins; jenkins_home/nodes; jenkins_home/users;
+        jenkins docker 则在执行时将jenkins_home 目录外挂，将外挂目录完整备份即可。
+        备份可将jenkins_home 目录整体压缩上传FTP，然后同步到要使用的jenkins环境中
