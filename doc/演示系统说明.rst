@@ -9,6 +9,8 @@
 
 1. Arch
 
+   Eth1:192.168.56.201
+
    登录账户: arch/arch
 
    * Docker
@@ -18,6 +20,7 @@
 
 2. Debian-Jesse
 
+   Eth1:192.168.56.x
    登录账户: pi/raspberry
 
 
@@ -33,3 +36,34 @@
 5. Windows 10
 
    登录账户： 13760112192
+
+6. Kali
+
+   Eth1:192.168.56.200
+   登录账户 root/13760112192 (kali/13760112192)
+
+7. OpenSUSE
+
+   Eth1:192.168.56.201
+   登录账户 suse/13760112192
+
+
+Docker 系统说明
+-----------------------------------------------------------
+
+1. Docker Registry
+
+   192.168.56.201:5001 testuser/testpassword
+
+2. Docker Compose
+
+3. Docker Swarm
+
+4. Docker Performace Monitoring [Prometheus]
+    https://hub.docker.com/r/h0tbird/portus/
+
+    docker run -p 9090:9090 -v /usr/local/share/Prometheus/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+
+
+5. Docker Registry Server GUI [Portus]
+   https://hub.docker.com/r/h0tbird/portus/
