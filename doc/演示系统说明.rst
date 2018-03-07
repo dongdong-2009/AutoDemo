@@ -58,6 +58,8 @@ Docker 系统说明
 2. Docker Compose
 
 3. Docker Swarm
+   manager:OpenSUSE
+   worker add to swarm cmds: docker swarm join --token SWMTKN-1-2w9qj3058xuvui4h86ltdkayeugz25m4e1nf2nl6lvvkct2d1y-f3pp2gj1weh6yywy755eyps2r 192.168.56.201:2377
 
 4. Docker Performace Monitoring [Prometheus]
     https://hub.docker.com/r/h0tbird/portus/
@@ -67,3 +69,5 @@ Docker 系统说明
 
 5. Docker Registry Server GUI [Portus]
    https://hub.docker.com/r/h0tbird/portus/
+
+在启用 docker stack 时，需要衡量合理的时间间隔做停止或重启，避免container 或 node 被破坏。如果container 不能启用，就需要重新构建container。
