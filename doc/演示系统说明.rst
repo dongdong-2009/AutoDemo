@@ -9,25 +9,35 @@
 
 1. Arch
 
-   Eth1:192.168.56.201
-
    登录账户: arch/arch
 
    * Docker
 
-     + jenkins(banrieen/123456) 192.168.56.202:8082
+     + jenkins(banrieen/123456; qinxing/123456)
      docker run --name SEJenkins -d -p 8082:8080 -p 50000:50000 -v /usr/local/share/jenkins:/var/jenkins_home jenkins
+
+   network::
+
+      eht0 dhcp
+      eth1 192.168.56.202
 
 2. Debian-Jesse
 
-   Eth1:192.168.56.x
    登录账户: pi/raspberry
 
+   network::
+
+      eht0 dhcp
+      eth1 192.168.56.204
 
 3. Ubuntu
 
    登录账户: pi/13760112192
 
+   network::
+
+      eht0 dhcp
+      eth1 192.168.56.203
 
 4. VirtualRouter
 
@@ -37,15 +47,23 @@
 
    登录账户： 13760112192
 
-6. Kali
+6. kali
 
-   Eth1:192.168.56.200
-   登录账户 root/13760112192 (kali/13760112192)
+  登录账号： root/13760112192 kali/13760112192
 
-7. OpenSUSE
+  network::
 
-   Eth1:192.168.56.201
-   登录账户 suse/13760112192
+     eth0 dhcp
+     eth1 192.168.56.200/24
+
+7. openSUSE LTE
+
+   登录账号 suse/13760112192
+
+   network::
+
+      eth0 dhcp
+      eth1 192.168.56.201
 
 
 Docker 系统说明
