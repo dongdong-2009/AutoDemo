@@ -89,3 +89,19 @@ Docker 系统说明
    https://hub.docker.com/r/h0tbird/portus/
 
 在启用 docker stack 时，需要衡量合理的时间间隔做停止或重启，避免container 或 node 被破坏。如果container 不能启用，就需要重新构建container。
+
+
+开源系统学习
+-----------------------------------------------------------
+
+1. Rocket.Chat
+
+   Service-System: Ubuntu 17.04
+   Access: http://192.168.56.203:3000/home
+   Account: banrien/13760112192/banrieen@163.Compose
+
+2. Wordpress
+
+   Free WebSie: http://wellcomtobanrieensite.wordpress.com
+   Free Account: banrieen/13760112192lz/banrieen@163.com
+   
