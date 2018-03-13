@@ -105,3 +105,19 @@ Docker 系统说明
    Free WebSie: http://wellcomtobanrieensite.wordpress.com
    Free Account: banrieen/13760112192lz/banrieen@163.com
    
+Android  相关技巧
+-----------------------------------------------------------
+
+1. 获取Android系统版本号
+
+To get Android version you can use::
+
+	adb shell getprop ro.build.version.release 
+
+to get API level::
+
+	adb shell getprop ro.build.version.sdk
+ 
+You can see all available properties with this command::
+
+	adb shell getprop
